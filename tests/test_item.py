@@ -40,3 +40,11 @@ def test_string_to_number():
     test = Item("1", 2, 3)
     assert test.string_to_number('6') == 6
     assert test.string_to_number('5.5') == 5
+
+def test_repr():
+    test = Item("1", 2, 3)
+    assert repr(test) == "Item('1', 2, 3)"
+
+def test_str():
+    test = Item("1", 2, 3)
+    assert str(test) == '1'
