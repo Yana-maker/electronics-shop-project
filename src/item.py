@@ -21,11 +21,16 @@ class Item:
         self.all.append(self)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.count_sim})"
 
     def __str__(self):
         return f"{self.name}"
 
+
+    def __add__(self, other):
+        if isinstance(other, self.__class__ ):
+            return self.quantity + other.quantity
+        return None
 
 
     def calculate_total_price(self) -> float:
