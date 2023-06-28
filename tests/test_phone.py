@@ -16,3 +16,11 @@ def test_repr(phone):
     assert repr(phone) == "Phone('iPhone 14', 120000, 5, 2)"
 
 
+def test_number_of_sim(phone):
+    assert phone.number_of_sim == 2
+
+
+
+def test_error(phone):
+    with pytest.raises(ValueError):
+        phone.number_of_sim = 0
