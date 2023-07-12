@@ -1,29 +1,32 @@
 from src.item import Item
 
-class MixinLang(Item):
-    def __init__(self, name, price, quantity):
-        super().__init__(name, price, quantity)
-        self._language = 'EN'
+class MixinLang:
+
+    __language = 'EN'
+    def __init__(self):
+        self.__language = MixinLang.__language
 
     @property
     def language(self):
-        return self._language
-
-    @language.setter
-    def check_lang(self):
-        self._language = 'RU'
-        self._language = 'EN'
+        return self.__language
 
     def change_lang(self):
-        if self._language == "EN":
-            self._language = "RU"
-        else:
-            self._language = "EN"
-        return self
+        if self.language == "EN":
+            self.__language = "RU"
+            return self
+        elif self.language == "RU":
+            self.__language = "EN"
+            return self
 
 
-class KeyBoard(MixinLang):
-    pass
+class KeyBoard(Item, MixinLang):
+    def __init__(self, name, price, quantity):
+        super().__init__(name, price, quantity)
+
+
+
+
+
 
 
 
